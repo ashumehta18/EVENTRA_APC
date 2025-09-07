@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import EventDetails from "./pages/EventDetails"; 
 import VenueDetails from "./pages/VenueDetails";
+import BlogPost from "./pages/BlogPost"; 
 
 // Home Page Layout (your existing one)
 function Home() {
@@ -42,6 +43,8 @@ function App() {
         {/* The route for the venue details page. The ":id" part makes the ID available via useParams. */}
         <Route path="/venues/:id" element={<VenueDetails />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:postId" element={<BlogPost />} />
+        {/* Add other routes here */}
         <Route path="/support" element={<Support />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -53,3 +56,4 @@ function App() {
 }
 
 export default App;
+
