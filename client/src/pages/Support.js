@@ -1,7 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./../style.css";
 
 function Support() {
+  const [isSent, setIsSent] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    category: "Select a category",
+    subject: "",
+    issue: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Log form data for debugging
+    console.log("Form Data Submitted:", formData);
+
+    // Simulate a successful send and show the message
+    setIsSent(true);
+
+    // Clear the form fields
+    setFormData({
+      name: "",
+      email: "",
+      category: "Select a category",
+      subject: "",
+      issue: "",
+    });
+
+    // Hide the message after 5 seconds
+    setTimeout(() => {
+      setIsSent(false);
+    }, 5000);
+  };
+
   return (
     <div className="support-page">
       {/* Header */}
@@ -66,18 +107,55 @@ function Support() {
         {/* Contact Us Form */}
         <div className="contact-form">
           <h2>Contact Us</h2>
-          <form>
-            <input type="text" placeholder="Name *" required />
-            <input type="email" placeholder="Email *" required />
-            <select>
+          <form onSubmit={handleSubmit}>
+            {isSent && (
+              <div className="success-message">
+                ✅ Your message has been sent successfully! We'll get back to you soon.
+              </div>
+            )}
+            <input
+              type="text"
+              name="name"
+              placeholder="Name *"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email *"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+            >
               <option>Select a category</option>
               <option>Ticket Issue</option>
               <option>Event Creation</option>
               <option>Payment</option>
               <option>Other</option>
             </select>
-            <input type="text" placeholder="Subject *" required />
-            <textarea placeholder="Describe your issue..." rows="5" required></textarea>
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject *"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+            />
+            <textarea
+              name="issue"
+              placeholder="Describe your issue..."
+              rows="5"
+              value={formData.issue}
+              onChange={handleChange}
+              required
+            ></textarea>
             <button type="submit" className="send-btn">Send Message</button>
           </form>
         </div>
@@ -87,4 +165,3 @@ function Support() {
 }
 
 export default Support;
-
