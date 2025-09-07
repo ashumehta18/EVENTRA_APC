@@ -1555,3 +1555,93 @@ body {
     font-size: 1.8em;
   }
 }
+
+.read-more {
+  display: inline-block;
+  padding: 12px 24px;
+  /* UPDATED GRADIENT */
+  background: linear-gradient(45deg, #007bff, #6a0572, #dc3545, #fd7e14); /* Blue, Purple, Red, Orange mixture */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adjusted shadow for consistency */
+}
+
+.read-more:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
+}
+
+/* ... (rest of .read-more and .read-more:active styles remain the same) */
+/* Styling for the BlogPost detail page */
+.blog-detail {
+  padding: 40px 20px;
+  max-width: 900px; /* Max width for the content area */
+  margin: 0 auto; /* Center the content */
+}
+
+.detail-image {
+  width: 100%; /* Make image responsive */
+  max-height: 400px; /* Limit height */
+  object-fit: cover; /* Cover the area without distortion */
+  border-radius: 15px; /* Rounded corners for the image */
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.detail-content {
+  background-color: #ffffff; /* White background for the content box */
+  padding: 30px;
+  border-radius: 20px; /* Rounded corners for the content box */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* More prominent shadow for the box */
+  line-height: 1.8;
+}
+
+.detail-content h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.detail-content .detail-meta {
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.detail-content .detail-text {
+  font-size: 1.1em;
+  color: #555;
+  text-align: left;
+}
+
+/* Styling for the "Back to all posts" button */
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #007bff, #6a0572, #dc3545, #fd7e14); /* Blue, Purple, Red, Orange */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px; /* Rounded pill shape */
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-link:active {
+  transform: translateY(0);
+}
