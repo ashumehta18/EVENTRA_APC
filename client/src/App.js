@@ -1,4 +1,5 @@
-import React from "react";
+// src/App.js
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,11 +16,13 @@ import Blog from "./pages/Blog";
 import Support from "./pages/Support";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import EventDetails from "./pages/EventDetails"; 
+import EventDetails from "./pages/EventDetails";
 import VenueDetails from "./pages/VenueDetails";
-import BlogPost from "./pages/BlogPost"; 
+import BlogPost from "./pages/BlogPost";
+import Profile from "./pages/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-// Home Page Layout (your existing one)
+// Home Page Layout
 function Home() {
   return (
     <>
@@ -32,23 +35,33 @@ function Home() {
 }
 
 function App() {
+  // Session user state; starts null on fresh app start
+  const [user, setUser] = useState(null);
+  const sessionUser = { user, setUser }; // pass to Navbar and Login
+
   return (
     <Router>
-      <Navbar />
+      <Navbar sessionUser={sessionUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/create-event" element={<CreateEvent />} />
         <Route path="/venues" element={<Venues />} />
-        {/* The route for the venue details page. The ":id" part makes the ID available via useParams. */}
         <Route path="/venues/:id" element={<VenueDetails />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:postId" element={<BlogPost />} />
-        {/* Add other routes here */}
         <Route path="/support" element={<Support />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login sessionUser={sessionUser} />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/event/:id" element={<EventDetails />} /> 
+        <Route path="/event/:id" element={<EventDetails />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Footer />
     </Router>
@@ -56,4 +69,3 @@ function App() {
 }
 
 export default App;
-

@@ -1645,3 +1645,80 @@ body {
 .back-link:active {
   transform: translateY(0);
 }
+
+/* ================= Profile Page ================= */
+.profile-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-container h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.profile-container p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+.profile-actions {
+  margin-top: 2rem;
+}
+
+.profile-btn {
+  padding: 0.7rem 1.5rem;
+  border: 2px solid #0077ff;
+  background: transparent;
+  color: #0077ff;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.profile-btn:hover {
+  background: #0077ff;
+  color: white;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 15px 0;
+  border: 3px solid #6c63ff;
+}
+
+.nav-profile-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 2px solid #6c63ff;
+}
+
+.logout-btn {
+  background: #6c63ff;      /* same as signup button */
+  border: none;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #5548d9;      /* darker shade for hover */
+}
